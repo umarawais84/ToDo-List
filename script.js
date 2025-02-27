@@ -41,14 +41,24 @@ function displayTasks() {
     //Set the inner HTML of the <li> element with task text and a remove button
     li.innerHTML = `${task} <button class='btn btn-dark btn-sm' onclick ='removeTask(${index})'> √ </button>`
     // Append the task to the LI element
-    taskList.append(li)
-
-
-
-
-
-
-
-
+    taskList.appendChild(li)
   });
 }
+
+
+function removeTask(index){
+  tasks.splice(index,1);
+
+  displayTasks();
+}
+
+
+
+document.getElementById('clearTaskBtn').addEventListener('click', function () {
+
+  tasks= []
+
+  displayTasks();
+})
+
+
